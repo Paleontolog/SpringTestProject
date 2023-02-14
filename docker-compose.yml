@@ -1,0 +1,15 @@
+version: "3.3"
+services:
+  backend:
+    image: paleontolog/test_task_spring
+    container_name: spring_backend
+    restart: always
+    ports:
+      - "8080:8080"
+    environment:
+      spring.datasource.url: "jdbc:h2:file:./database/mydb"
+      spring.datasource.username: "sa"
+      spring.datasource.password: "password"
+    volumes:
+      - ./database:/database
+    network_mode: "host"
